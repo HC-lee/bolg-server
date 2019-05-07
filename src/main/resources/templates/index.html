@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<script src="../static/js/my.js"></script>
+<script>
+    function onclick() {
+        alert('你点击了标题')
+    }
+</script>
+<link rel="stylesheet" href="../static/css/my.css">
+<h1 id="title" onclick="onclick()">thymeleaf in spring boot</h1>
+<h1 th:text="${replace_text}">thymeleaf in spring boot</h1>
+</body>
+
+
+</html>
+

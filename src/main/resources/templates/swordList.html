@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloThymeleaf</title>
+    <link rel="stylesheet" href="../static/css/my.css">
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/vue2.5.16.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <h1>名剑表</h1>
+    <ul>
+        <li v-for="(val, key, index) in imgData" :key="index">
+            <a href=""><val.imgurl width="300"/></a>
+            <a href=""><val.name/></a>
+        </li>
+    </ul>
+</div>
+<script>
+    $.getJSON('http://localhost:8080/swords/findAll', function (data) {
+            new Vue({
+                el: "#root",//与id是box的元素绑定
+                data: {//数据
+                    imgData: data.data
+                }
+            });
+        }
+    );
+</script>
+</body>
+</html>

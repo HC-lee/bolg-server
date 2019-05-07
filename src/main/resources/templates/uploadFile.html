@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+    <div style="padding: 10px">
+        <form enctype="multipart/form-data" method="post" action="/upload">
+            <input type="file" name="file"/>
+            <button type="submit">上传</button>
+        </form>
+    </div>
+
+    <div style="padding: 10px">
+        <form enctype="multipart/form-data" method="post" action="/parseExcel">
+            <input type="file" name="file"/>
+            <button type="submit">上传</button>
+        </form>
+    </div>
+</body>
+</html>
+

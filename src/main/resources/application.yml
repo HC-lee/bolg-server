@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML5
+    cache: false
+  mvc:
+    #启用静态文件夹
+    static-path-pattern: /static/**
+  profiles:
+    active: dev
+
+
+package: blog
+versionCode: 1
+versionInfo: "package:${package} And versionCode:${versionCode}"
