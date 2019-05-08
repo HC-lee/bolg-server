@@ -1,4 +1,4 @@
-package com.supcoder.blog.controller.admin;
+package com.supcoder.blog.controller.manage;
 
 import com.supcoder.blog.controller.BaseController;
 import com.supcoder.blog.exception.ErrorCodeEnum;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2017/7/11 20:15
  */
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/manage")
 public class AuthController extends BaseController {
 
     @Autowired
@@ -98,5 +98,22 @@ public class AuthController extends BaseController {
 
         return ResultUtil.success(user.getUsername());
     }
+
+    /**
+     * 获取用户名
+     *
+     * @return {@see String}
+     */
+    @GetMapping("userInfo")
+    @ResponseBody
+    public JsonResult userInfo() {
+        User user = this.user();
+        if (null == user) {
+            return ResultUtil.error(ErrorCodeEnum.NOT_LOGIN.getCode(),ErrorCodeEnum.NOT_LOGIN.getMsg());
+        }
+        user.setPasswordMd5("");
+        return ResultUtil.success(user);
+    }
+
 
 }

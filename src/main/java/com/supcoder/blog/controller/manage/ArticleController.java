@@ -1,4 +1,4 @@
-package com.supcoder.blog.controller.admin;
+package com.supcoder.blog.controller.manage;
 
 
 import com.github.pagehelper.Page;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2017/7/11 19:52
  */
 @RestController
-@RequestMapping("/api/admin/article")
+@RequestMapping("/api/manage/article")
 public class ArticleController extends BaseController {
 
     @Autowired

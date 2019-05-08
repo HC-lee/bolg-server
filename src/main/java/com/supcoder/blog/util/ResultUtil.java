@@ -3,6 +3,9 @@ package com.supcoder.blog.util;
 
 import com.supcoder.blog.exception.ErrorCodeEnum;
 
+/**
+ * @author lee
+ */
 public final class ResultUtil {
 
 	/**
@@ -47,7 +50,7 @@ public final class ResultUtil {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static JsonResult success() {
-		return success(1,"success");
+		return success(0,"success");
 	}
 
 	/**

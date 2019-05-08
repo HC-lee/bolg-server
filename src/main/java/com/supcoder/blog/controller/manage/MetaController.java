@@ -1,4 +1,4 @@
-package com.supcoder.blog.controller.admin;
+package com.supcoder.blog.controller.manage;
 
 import com.supcoder.blog.controller.BaseController;
 import com.supcoder.blog.service.MetaService;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2017/8/28 23:16
  */
 @RestController
-@RequestMapping("/api/admin/meta")
+@RequestMapping("/api/manage/meta")
 public class MetaController extends BaseController {
 
     @Autowired
