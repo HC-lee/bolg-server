@@ -1,4 +1,4 @@
-package com.supcoder.blog.controller.manage;
+package com.supcoder.blog.controller.admin;
 
 import com.supcoder.blog.controller.BaseController;
 import com.supcoder.blog.exception.ErrorCodeEnum;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2017/7/11 20:15
  */
 @RestController
-@RequestMapping("/api/manage")
+@RequestMapping("/api/admin")
 public class AuthController extends BaseController {
 
     @Autowired

@@ -1,6 +1,10 @@
 package com.supcoder.blog.config;
 
+import com.supcoder.blog.interceptor.AdminInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,7 +22,25 @@ public class WebConfig implements WebMvcConfigurer {
         //在F:/SpringBootFiles/Image/下如果有一张 Excalibar.jpg的图片，那么：
         //【1】访问：http://localhost:8080/imgs/Excalibar.jpg 可以访问到
         //【2】html 中 <img src="imgs/Excalibar.jpg">
-        registry.addResourceHandler("/imgs/**").addResourceLocations("file:/Users/lee/Documents/JavaProgram/blog/file/imgs/");
+        registry.addResourceHandler("/imgs/**").addResourceLocations("file:/Users/lee/Desktop/blog/supcoder/blog-server/file/imgs/");
     }
 
+
+    @Autowired
+    private AdminInterceptor adminInterceptor;
+
+    //跨域请求配置
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/**")
+                .allowCredentials(true)
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE","OPTIONS");
+    }
+
+    //拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(adminInterceptor).addPathPatterns("/api/**");
+    }
 }

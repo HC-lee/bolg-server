@@ -37,7 +37,7 @@ public final class ResultUtil {
 
 	public static JsonResult<?> success(int resultCode, Object data, String message) {
 		JsonResult<Object> result = new JsonResult<Object>();
-		result.setResult(resultCode);
+		result.setCode(resultCode);
 		result.setMsg(message);
 		result.setData(data);
 		return result;
@@ -63,14 +63,14 @@ public final class ResultUtil {
 	@SuppressWarnings("rawtypes")
 	public static JsonResult error(Integer resultCode, String message) {
 		JsonResult result = new JsonResult();
-		result.setResult(resultCode);
+		result.setCode(resultCode);
 		result.setMsg(message);
 		return result;
 	}
 
 	public static JsonResult errorWithData(Integer resultCode, String message,String data) {
 		JsonResult result = new JsonResult();
-		result.setResult(resultCode);
+		result.setCode(resultCode);
 		result.setMsg(message);
 		result.setData(data);
 		return result;

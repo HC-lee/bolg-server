@@ -1,12 +1,14 @@
 package com.supcoder.blog.util;
 
 
+import com.supcoder.blog.exception.ErrorCodeEnum;
+
 /**
  * @author lee
  */
 public class JsonResult<T> {
 
-	private int result;
+	private int code;
 
 	private String msg;
 
@@ -16,34 +18,34 @@ public class JsonResult<T> {
 	}
 	
 	public JsonResult(T data){
-		this.result = 1;
+		this.code = ErrorCodeEnum.SUCCESS.getCode();
 		this.msg = "success";
 		this.data = data;
 	}
 	
 	public JsonResult(String msg, T data){
-		this.result = 1;
+		this.code = ErrorCodeEnum.SUCCESS.getCode();
 		this.msg = msg;
 		this.data = data;
 	}
 
-	public JsonResult(int result, String msg){
-		this.result = result;
+	public JsonResult(int code, String msg){
+		this.code = code;
 		this.msg = msg;
 	}
 	
-	public JsonResult(int result, String msg, T data){
-		this.result = result;
+	public JsonResult(int code, String msg, T data){
+		this.code = code;
 		this.msg = msg;
 		this.data = data;
 	}
 
-	public int getResult() {
-		return result;
+	public int getCode() {
+		return code;
 	}
 
-	public void setResult(int result) {
-		this.result = result;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public String getMsg() {
@@ -64,7 +66,7 @@ public class JsonResult<T> {
 
 	@Override
 	public String toString() {
-		return "JsonResult [result=" + result + ", msg=" + msg + ", data=" + data + "]";
+		return "JsonResult [code=" + code + ", msg=" + msg + ", data=" + data + "]";
 	}
 	
 }
